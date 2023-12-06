@@ -7,3 +7,8 @@ services:
       - ./:/app/
     ports:
       - "1323:1323"
+  lambda:
+    build: ./app/day5/
+    tty: true
+    ports:
+      - "9000:8080"
