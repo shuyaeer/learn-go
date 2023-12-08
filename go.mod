@@ -4,6 +4,8 @@ go 1.21.4
 
 require (
 	github.com/aws/aws-lambda-go v1.41.0 // indirect
+	github.com/buger/jsonparser v1.1.1 // indirect
+	github.com/go-sql-driver/mysql v1.7.1 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/labstack/echo/v4 v4.11.3 // indirect
 	github.com/labstack/gommon v0.4.0 // indirect

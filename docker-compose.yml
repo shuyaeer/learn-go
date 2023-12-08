@@ -7,8 +7,15 @@ services:
       - ./:/app/
     ports:
       - "1323:1323"
-  lambda:
-    build: ./app/day5/
-    tty: true
+  mysql:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: golang
+      MYSQL_USER: golang
+      MYSQL_PASSWORD: golang
+    restart: always
     ports:
-      - "9000:8080"
+      - "3310:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
