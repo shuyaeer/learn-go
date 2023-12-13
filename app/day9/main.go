@@ -16,7 +16,7 @@ func main() {
   // データベースへの接続設定
   db, err := sql.Open("mysql", "golang:golang@tcp(mysql:3306)/golang?parseTime=true")
   if err != nil {
-      log.Fatal(err)
+    log.Fatal(err)
   }
   defer db.Close()
 
