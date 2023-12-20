@@ -1,0 +1,62 @@
+openapi: 3.0.0
+info:
+  description: This is a sample server for a pet store.
+  title: Sample API
+  version: 1.0.0
+servers:
+- description: "Optional server description, e.g. Main (production) server"
+  url: http://api.example.com/v1
+paths:
+  /items:
+    get:
+      operationId: listItems
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Item'
+                type: array
+          description: A list of items.
+        "500":
+          description: Unexpected error
+      summary: List all items
+      tags:
+      - items
+    post:
+      operationId: createItem
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+          description: Item created successfully.
+        "400":
+          description: Invalid input
+      summary: Create a new item
+      tags:
+      - items
+components:
+  schemas:
+    Item:
+      example:
+        name: name
+        id: 0
+        tag: tag
+      properties:
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+        tag:
+          type: string
+      type: object
